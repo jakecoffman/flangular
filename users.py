@@ -8,10 +8,8 @@ class UserAPI(flask.views.MethodView):
         if user_id is None:
             return str([u.username for u in User.query.all()])
         else:
-            if user_id < len(flask.g.users):
-                return str(flask.g.users[user_id])
-            else:
-                return str("User not found")
+            user = User.query.filter_by(username=user_id).first()
+            return str(user)
 
     def post(self):
         data = flask.request.get_json()

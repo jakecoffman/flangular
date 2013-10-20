@@ -1,3 +1,4 @@
+import json
 from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -14,3 +15,10 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User %r>" % self.username
+
+    def __str__(self):
+        return json.dumps({
+            'uid': self.uid,
+            'username': self.username,
+            'email': self.email
+        })
