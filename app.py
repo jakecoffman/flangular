@@ -1,5 +1,5 @@
 import flask
-from users import UserAPI
+from views import UserAPI
 from models import db
 
 app = flask.Flask(__name__)

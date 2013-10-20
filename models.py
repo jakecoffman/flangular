@@ -5,8 +5,7 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
-    uid = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(128))
+    username = db.Column(db.String(128), primary_key=True)
     email = db.Column(db.String(64))
 
     def __init__(self, username, email):
@@ -18,7 +17,6 @@ class User(db.Model):
 
     def __str__(self):
         return json.dumps({
-            'uid': self.uid,
             'username': self.username,
             'email': self.email
         })

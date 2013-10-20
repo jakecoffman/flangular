@@ -10,4 +10,7 @@ class UsersTest(unittest.TestCase):
         pass
 
     def test_list(self):
-        self.users.get()
+        print self.users.get(None)
+
+if __name__ == "__main__":
+    unittest.main()
